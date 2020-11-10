@@ -11,7 +11,7 @@ def retrieve_input():
     names = input.split('\n')
     names = list(filter(lambda line: len(line) > 0, names))
     winner = random.choice(names)
-    print(winner)
+    messagebox.showinfo(title = "Winner!!!", message = f"Congratulations {winner}!")
 
 #names = list(filter(lambda line: len(line) > 0, text.get('0.0', END).split('\n')))
 

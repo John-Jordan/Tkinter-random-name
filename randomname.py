@@ -1,7 +1,19 @@
 import random
 from tkinter import *   
 from tkinter import ttk
+from tkinter import messagebox
 root = Tk()
+
+
+
+def retrieve_input():
+    input = text.get('1.0', END)
+    names = input.split('\n')
+    names = list(filter(lambda line: len(line) > 0, names))
+    winner = random.choice(names)
+    print(winner)
+
+#names = list(filter(lambda line: len(line) > 0, text.get('0.0', END).split('\n')))
 
 label = ttk.Label(root, text = "Random Name Selector")
 label.pack()
@@ -12,22 +24,13 @@ new_logo = logo.subsample(7, 7)
 label.config(image = new_logo)
 label.config(compound = 'left')
 
-enter_name = ttk.Label(root, text = 'Add name to drawing: ')
-enter_name.pack(side = 'left')
-entry = ttk.Entry(root, width = 24)
-entry.pack(side = 'left')
+enter_name = ttk.Label(root, text = 'Enter names for drawing on individual lines: ')
+enter_name.pack()
+text = Text(root, width = 40, height = 20)
+text.pack()
 
-
-
-
-
-
-names = ['Billy Ray', 'Bobby Sue', 'Aunti Em', 'Crocodile Dundee', 'David Hasselhoff']
-
-winner = random.choice(names)
-print(f'The winner is {winner}!!!! Congratulations!')
-
-
+button = ttk.Button(root, text = 'Choose Winner', command = retrieve_input)
+button.pack()
 
 
 root.mainloop()

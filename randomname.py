@@ -13,8 +13,6 @@ def retrieve_input():
     winner = random.choice(names)
     messagebox.showinfo(title = "Winner!!!", message = f"Congratulations {winner}!")
 
-#names = list(filter(lambda line: len(line) > 0, text.get('0.0', END).split('\n')))
-
 label = ttk.Label(root, text = "Random Name Selector")
 label.pack()
 label.config(font = ("serif", 25, 'bold'))
